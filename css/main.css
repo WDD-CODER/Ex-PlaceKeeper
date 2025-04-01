@@ -60,6 +60,7 @@ nav {
 }
 
 nav button {
+    cursor: pointer;
 
     border-radius: 1em;
     background-color: dimgrey;

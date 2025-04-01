@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="onInit()">
 
 <main>
     <h1>Welcome back chef 🧑‍🍳. We're here to serve you as always 🫡.</h1>
@@ -23,13 +23,15 @@
 </section>
 
 <nav class="paging">
-    <button class="map">Map 🗺️</button>
-    <button class="user-pref">User Preferences📃</button>
+    <button class="map" onclick="moveToPage('map')">Map 🗺️</button>
+    <button class="user-pref" onclick="moveToPage('user-prefs')">User Preferences📃</button>
 </nav>
 <footer class="time-info">
-    <time class="time" datetime="">time : <span>00:00</span></time>
-    <time class="date" datetime="">date : <span>00.00.00</span></time>
+    <time class="time" datetime="">time : <span></span></time>
+    <time class="date" datetime="">date : <span></span></time>
 </footer>
+    <script src="js/utilService.js"></script>
+    <script src="js/userService.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
