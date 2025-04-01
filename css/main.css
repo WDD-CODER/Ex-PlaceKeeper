@@ -3,3 +3,97 @@
 *::after {
     box-sizing: border-box;
 }
+
+body {
+    position: relative;
+    margin: 3em;
+
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+
+    background-color: aquamarine;
+}
+
+img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+
+/* אני לא מצליח לעשות פה שזה יהפוך להיות פלואידי ויקטן לפחות שורות... */
+.gallery {
+    display: grid;
+
+    grid-auto-flow: dense;
+    justify-content: center;
+
+    max-width: 80vw;
+    margin: 2em;
+
+}
+
+
+.gallery h3 {
+    grid-column: 1/4;
+    grid-row: 1;
+
+    font-size: 1em;
+
+    text-align: center;
+    text-decoration: underline;
+}
+
+nav {
+
+    display: flex;
+
+    justify-self: center;
+
+    gap: 1em;
+
+    width: fit-content;
+
+    border-radius: 1em;
+
+    background-color: rgb(180, 178, 178);
+}
+
+nav button {
+
+    border-radius: 1em;
+    background-color: dimgrey;
+}
+
+
+footer {
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+
+    position: fixed;
+
+    bottom: 1em;
+    left: 2em;
+
+    /* padding: 2em; */
+
+    width: 80%;
+    height: 3em;
+
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    border-radius: 1em;
+    border: 1px solid #815d30;
+    background-color: bisque;
+}
+
+footer time {}
+
+@media (width <=600px) {
+    .gallery {
+        /* grid-template-columns:1fr,1fr */
+    }
+}
