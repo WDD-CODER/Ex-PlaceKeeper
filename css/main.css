@@ -6,8 +6,10 @@
 
 :root {
     --bg-color: aquamarine;
+    --second-bg-color: #f0f0f0;
     --text-color: black;
     --main-color: gray;
+    
     --main-border: 2px dotted rgb(58, 58, 58);
     --main-border-radios: 1em;
     /* --main-border-color: rgb(58, 58, 58); */
@@ -171,4 +173,19 @@ form button {
     border: 1px solid rgb(75, 74, 74);
 
     background-color: whitesmoke;
+}
+
+.birth-date{
+    
+    padding: .5em;
+    
+    margin-block-end: .5em;
+    
+    font-family: sans-serif;
+    
+    border-radius: var(--main-border-radios);
+    background-color:var(--second-bg-color);
+}
+time.birth-date{
+    margin-block-end: var(--margin-between);
 }
