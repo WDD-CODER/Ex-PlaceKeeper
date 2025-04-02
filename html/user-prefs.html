@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="css/user-pref.css">
+    <link rel="stylesheet" href="/css/main.css">
     <title>user preferences </title>
 </head>
-<body>
- <script src="js/user-pref.js"></script>   
+
+<body onload="onInit()">
+    <main>
+        <form class="main-menu" method="dialog">
+            <div class="form-row">
+                <label for="user email"> whats your email? </label>
+                <input type="email" name="user-email" onblur="onGetInput(this)">
+            </div>
+            <div class="form-row">
+                <label for="user bg">Choose your favorite text color!</label>
+                <input type="color" name="text-color"  onblur="onGetInput(this)">
+            </div>
+            <div class="form-row">
+                <label for="user bg">Choose your background color!</label>
+                <input type="color" name="background-color"  onblur="onGetInput(this)">
+            </div>
+            <!-- <div class="form-row">
+                <label for="user age">What's your age chef?</label>
+                <input type="range" name="userAge">
+            </div> -->
+            <button>submit</button>
+        </form>
+    </main>
+    <nav class="paging">
+        <button class="map" onclick="moveToPage('map')">Map 🗺️</button>
+        <button class="user-pref" onclick="moveToPage('index')">Home Page 🏠</button>
+    </nav>
+    <footer class="time-info">
+        <time class="time" datetime="">time : <span></span></time>
+        <time class="date" datetime="">date : <span></span></time>
+    </footer>
+    
+    <script src="/js/utilService.js"></script>
+    <script src="/js/userService.js"></script>
+    <script src="/js/main.js"></script>
 </body>
+
 </html>
