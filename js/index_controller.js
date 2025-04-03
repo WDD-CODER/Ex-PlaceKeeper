@@ -21,9 +21,19 @@ function startClockAndDate() {
     gClockIntervalId = setInterval(updateClock, 1000)
 }
 
+
+
+// פונקציה בפני עצמה להעלות את כל הנתונים של היוזר בפני עצמה
+// ואז אחרי היה רנדרים                
+
 function render() {
-    document.documentElement.style.setProperty('--text-color', loadFromLocalStorage('text-color'));
-    document.documentElement.style.setProperty('--bg-color', loadFromLocalStorage('background-color'));
+    onShowStyling()
+    if(localStorage.getItem('birth-date')){
+        const date = loadFromLocalStorage('birth-date').split('-').reverse().join('-')
+        document.querySelector('time.birth-date').innerText = date
+    } 
+
+  
     // if (localStorage.getItem('birth-date')) {
     //     console.log('variable', variable);
 
@@ -32,6 +42,17 @@ function render() {
 //    }
 //     // ('birth-date', loadFromLocalStorage('birth-date'))
 }
+
+function onShowStyling(){
+    changeStyling()
+}
+
+function changeStyling(){
+    document.documentElement.style.setProperty('--text-color', loadFromLocalStorage('text-color'));
+    document.documentElement.style.setProperty('--bg-color', loadFromLocalStorage('background-color'));
+    }
+
+    // function ShowDate
 
 function onGetInput(el) {
     switch (true) {
@@ -48,6 +69,8 @@ function onGetInput(el) {
             document.documentElement.style.setProperty('--bg-color', el.value);
             break;
         case el.name === 'birth-date':
+            console.log('variable');
+            
             saveToLocalStorage(el.name, el.value);
             gQueryOptions.birthDate.date = el.value;
             document.querySelector('time.birth-date').innerText = el.value;

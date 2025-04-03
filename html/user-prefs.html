@@ -10,33 +10,31 @@
 
 <body onload="onInit()">
     <main>
-        <form class="main-menu" method="dialog">
+        <form class="main-menu" onsubmit="onsubmit(event)">
             <div class="form-row">
                 <label for="user email"> whats your email? </label>
-                <input type="email" name="user-email" onblur="onGetInput(this)">
+                <input required id="user email" type="email" name="user-email" onblur="onGetInput(this)">
             </div>
             <div class="form-row">
                 <label for="user text-color">Choose your favorite text color!</label>
-                <input type="color" name="text-color"  onblur="onGetInput(this)">
+                <input id="user text-color" type="color" name="text-color"  onblur="onGetInput(this)">
             </div>
             <div class="form-row">
                 <label for="user bg-color">Choose your background color!</label>
-                <input type="color" name="background-color"  onblur="onGetInput(this)">
+                <input id="user bg-color" type="color" name="background-color"  onblur="onGetInput(this)">
             </div>
             <div class="form-row">
                 <label for="user birth-date">So when's birthday chef!? </label>
-                <input type="date" name="birth-date" onblur="onGetInput(this)">
+                <input id="user birth-date" type="date" name="birth-date" onblur="onGetInput(this)">
             </div>
-            <!-- <div class="form-row">
-                <label for="user age">What's your age chef?</label>
-                <input type="range" name="userAge">
-            </div> -->
             <button>submit</button>
         </form>
     </main>
     <nav class="paging">
-        <button class="map" onclick="moveToPage('map')">Map 🗺️</button>
-        <button class="user-pref" onclick="moveToPage('index')">Home Page 🏠</button>
+        <a href="/html/map.html">Map 🗺️</a>
+        <a href="/html/index.html">Home Page 🏠</a>
+        <!-- <button class="map" onclick="moveToPage('map')">Map 🗺️</button>
+        <button class="user-pref" onclick="moveToPage('index')">Home Page 🏠</button> -->
     </nav>
     <label class="birth-date">How's got a birthdate on the...!!!</label>
 <time class="birth-date" datetime="birth-date">xx</time>
@@ -46,9 +44,9 @@
         <time class="date" datetime="">date : <span></span></time>
     </footer>
     
-    <script src="/js/utilService.js"></script>
-    <script src="/js/userService.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/service/utilService.js"></script>
+    <script src="/service/userService.js"></script>
+    <script src="/js/index_controller.js"></script>
 </body>
 
 </html>

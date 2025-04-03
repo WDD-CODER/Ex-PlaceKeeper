@@ -102,7 +102,7 @@ nav {
 
 }
 
-nav button {
+nav a {
     cursor: pointer;
 
     border-radius: var(--main-border-radios);

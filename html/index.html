@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <title>Document</title>
 </head>
+
 <body onload="onInit()">
     <header>
         <h1>Welcome back chef 🧑‍🍳. We're here to serve you as always 🫡.</h1>
@@ -14,27 +16,30 @@
     <section class="pics-gallery">
         <h2>Maybe some pictures to arouse your creativity, chef!? 💡</h2>
         <div class="gallery" alt="pictures gallery">
-        <img src="http://unsplash.it/460/340/?1" alt="">
-        <img src="http://unsplash.it/460/340/?2" alt="">
-        <img src="http://unsplash.it/460/340/?3" alt="">
-        <img src="http://unsplash.it/460/340/?4" alt="">
-        <img src="http://unsplash.it/460/340/?5" alt="">
-        <img src="http://unsplash.it/460/340/?6" alt="">
-    </div>
-</section>
+            <img src="http://unsplash.it/460/340/?1" alt="">
+            <img src="http://unsplash.it/460/340/?2" alt="">
+            <img src="http://unsplash.it/460/340/?3" alt="">
+            <img src="http://unsplash.it/460/340/?4" alt="">
+            <img src="http://unsplash.it/460/340/?5" alt="">
+            <img src="http://unsplash.it/460/340/?6" alt="">
+        </div>
+    </section>
 
-<nav class="paging">
-    <button class="map" onclick="moveToPage('map')" alt="go to map">Map 🗺️</button>
-    <button class="user-pref" onclick="moveToPage('user-prefs')" alt="go to user-pref">User Preferences📃</button>
-</nav>
-<label class="birth-date">How's got a birthdate on the...!!!</label>
-<time class="birth-date" datetime="birth-date">xx</time>
-<footer class="time-info">
-    <time class="time" datetime="">time : <span></span></time>
-    <time class="date" datetime="">date : <span></span></time>
-</footer>
-<script src="/js/utilService.js"></script>
-<script src="/js/userService.js"></script>
-<script src="/js/main.js"></script>
+    <nav class="paging">
+        <a href="/html/map.html">Map 🗺️</a>
+        <a href="/html/index.html">Home Page 🏠</a>
+        <!-- <button class="map" onclick="moveToPage('map')" alt="go to map">Map 🗺️</button>
+        <button class="user-pref" onclick="moveToPage('user-prefs')" alt="go to user-pref">User Preferences📃</button> -->
+    </nav>
+    <label class="birth-date">How's got a birthdate on the...!!!</label>
+    <time class="birth-date" datetime="birth-date">xx</time>
+    <footer class="time-info">
+        <time class="time" datetime="">time : <span></span></time>
+        <time class="date" datetime="">date : <span></span></time>
+    </footer>
+    <script src="/service/utilService.js"></script>
+    <script src="/service/userService.js"></script>
+    <script src="/js/user_controller.js"></script>
 </body>
+
 </html>
