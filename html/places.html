@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>google map</title>
+</head>
+
+<body onload="onMapInit()">
+    <main>
+
+        <section class="map">
+            <h1>My first Google map</h1>
+            <div class="map-container"></div>
+        </section>
+
+        <section class="places">
+            <h3>"The" places to be at</h3>
+            <ul>
+            </ul>
+        </section>
+
+        <nav class="paging" alt="navigation links">
+            <a href="/html/user-prefs.html">User Preferences📃</a>
+            <a href="/html/index.html">Home Page 🏠</a>
+        </nav>
+    </main>
+
+    <footer class="time-info">
+        <time class="time" datetime="">time : <span></span></time>
+        <time class="date" datetime="">date : <span></span></time>
+    </footer>
+
+    <script src="/service/utilService.js"></script>
+    <script src="/service/placesService.js"></script>
+    <script src="/js/timeAndDateController.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2Kd_xOK37FqjaQVKLW3uIiIcw-Xi8tPg" async
+        defer></script>
+    <script src="/js/places_controller.js"></script>
+</body>
+
+</html>

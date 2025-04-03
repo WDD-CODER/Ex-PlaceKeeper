@@ -8,45 +8,63 @@
     <title>user preferences </title>
 </head>
 
-<body onload="onInit()">
+<body onload="onUserInit()">
     <main>
-        <form class="main-menu" onsubmit="onsubmit(event)">
+        <form class="main-menu" onsubmit="onSubmit(event)">
             <div class="form-row">
-                <label for="user email"> whats your email? </label>
-                <input required id="user email" type="email" name="user-email" onblur="onGetInput(this)">
+                <label for="email"> whats your email? </label>
+                <input required id="email" type="email" name="email">
             </div>
             <div class="form-row">
-                <label for="user text-color">Choose your favorite text color!</label>
-                <input id="user text-color" type="color" name="text-color"  onblur="onGetInput(this)">
+                <label for="textColor">Choose your favorite text color!</label>
+                <input id="textColor" type="color" name="textColor" value="#ffffff">
             </div>
             <div class="form-row">
-                <label for="user bg-color">Choose your background color!</label>
-                <input id="user bg-color" type="color" name="background-color"  onblur="onGetInput(this)">
+                <label for="bgc">Choose your background color!</label>
+                <input id="bgc" type="color" name="bgc" value="#000000">
             </div>
             <div class="form-row">
-                <label for="user birth-date">So when's birthday chef!? </label>
-                <input id="user birth-date" type="date" name="birth-date" onblur="onGetInput(this)">
+                <label for="birthDate">So when's birthday chef!? </label>
+                <input required id="birthDate" type="date" name="birthDate">
             </div>
-            <button>submit</button>
+            <div class="form-row">
+                <label for="birthTime">And what time you got born? </label>
+                <input required id="birthTime" type="time" name="birthTime">
+            </div>
+            <div class="form-row">
+                <label for="age">How old are you ? <span class="age">20</span></label>
+                <input required id="age" type="range" name="age" min="18" max="120" value="20"
+                    oninput="onShowAgeRange(this.value)">
+            </div>
+            <div class="form-row">
+                <label for="gender">what's your gender? </label>
+                <input required id="gender" list="genderOptions" type="text" name="gender">
+            </div>
+
+            <datalist id="genderOptions">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="non of the other">Non of the other</option>
+            </datalist>
+
+            <button onsubmit="onSubmit(event)" type="submit">submit</button>
         </form>
+        
+        <nav class="paging">
+            <a href="/html/places.html">Map 🗺️</a>
+            <a href="/html/index.html">Home Page 🏠</a>
+        </nav>
     </main>
-    <nav class="paging">
-        <a href="/html/map.html">Map 🗺️</a>
-        <a href="/html/index.html">Home Page 🏠</a>
-        <!-- <button class="map" onclick="moveToPage('map')">Map 🗺️</button>
-        <button class="user-pref" onclick="moveToPage('index')">Home Page 🏠</button> -->
-    </nav>
-    <label class="birth-date">How's got a birthdate on the...!!!</label>
-<time class="birth-date" datetime="birth-date">xx</time>
 
     <footer class="time-info">
         <time class="time" datetime="">time : <span></span></time>
         <time class="date" datetime="">date : <span></span></time>
     </footer>
-    
+
     <script src="/service/utilService.js"></script>
     <script src="/service/userService.js"></script>
-    <script src="/js/index_controller.js"></script>
+    <script src="/js/timeAndDateController.js"></script>
+    <script src="/js/user_controller.js"></script>
 </body>
 
 </html>
