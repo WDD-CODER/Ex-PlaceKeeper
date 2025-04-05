@@ -9,6 +9,7 @@ _createPlaces()
 // { id: '1p2', lat: 32.1416, lng: 34.831213, name: 'Pukis house' },
 // ]
 
+// Add & Remove
 function getPlaces() {
     return gPlaces
 }
@@ -16,13 +17,18 @@ function getPlaces() {
 function removePlace(placeId) {
     var placeIdx = gPlaces.findIndex(place => place.id === placeId)
     gPlaces.splice(placeIdx, 1)
-    saveToLocalStorage("PLACES_STORAGE_KEY", gPlaces)
+    savePlaceToLocalStorage()
+}
 
+function removePlaces() {
+    gPlaces.splice(0)
+    savePlaceToLocalStorage()
 }
 
 function addPlace(name, lat, lng, zoom) {
     const newPlace = _createPlace(name, lat, lng, zoom)
     gPlaces.push(newPlace)
+    savePlaceToLocalStorage()
 }
 
 function getPlaceById(placeId) {
@@ -46,20 +52,35 @@ function savePlaceToLocalStorage() {
 
 
 function _createPlaces() {
-    
-    gPlaces = loadFromLocalStorage('PLACES_STORAGE_KEY')
+
+    gPlaces = loadFromLocalStorage(PLACES_STORAGE_KEY)
 
     if (!gPlaces || !gPlaces.length) {
-        console.log('!gPlaces ', !gPlaces);
-
         var Places = []
-        for (let i = 0; i < 3; i++) {
+        for (let i = 1; i <= 3; i++) {
             Places.push(_createPlace('place' + i, 30.1416 + i, 38.831213 + i, 0 + i))
         }
         gPlaces = Places
-        saveToLocalStorage("PLACES_STORAGE_KEY", gPlaces)
+        savePlaceToLocalStorage()
     }
-    else return 
+    else return
 }
 
+// Positioning
+function currentPosition() {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError)
+}
 
+function getCSVfil() {
+    var csvHeadersStr = 'id, name, lat, lng, zoom'
+    gPlaces.forEach(place => {
+        const csvLine = `\n${place.id}, ${place.name}, ${place.lat}, ${place.lng}, ${place.zoom}`
+        csvHeadersStr += csvLine
+    });
+    return csvHeadersStr
+}
+
+function getCSVTitles() {
+    const Places = gPlaces || []
+    const objectKeys = Object.keys(Places[0]).join(",")
+}

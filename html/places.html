@@ -18,6 +18,14 @@
 
         <section class="places">
             <h3>"The" places to be at</h3>
+            <div class="more-btn-container">
+                <button class="cur-pos" onclick="currentPosition()">🎯</button>
+                <button class="remove-all" onclick="onRemoveAllPlaces()">Delete All</button>
+                <a class="csv-download" href="#" onclick="onDownloadCSV(this)" download="exported-data.csv">
+                    <i class="fas fa-file-csv csv-icon"></i>
+                    Download CSV
+                </a>
+            </div>
             <ul>
             </ul>
         </section>

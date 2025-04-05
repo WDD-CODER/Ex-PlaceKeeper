@@ -155,7 +155,9 @@ form {
     background-color: var(--main-color);
 }
 
-form button {
+button {
+    cursor: pointer;
+
     width: fit-content;
     align-self: center;
 
@@ -242,7 +244,8 @@ ul {
     display: flex;
     flex-direction: column;
 
-    justify-content: s;
+    width: 100%;
+
     gap: 1em;
 
 }
@@ -255,6 +258,22 @@ li::marker {
 
 li {
     padding: .4em;
+    
+    border-radius: var(--main-border-radios);
+    border: 1px solid rgb(75, 74, 74);
+    background-color: rgb(190, 189, 188);
+
+}
+
+li button:first-of-type {
+    margin-left: 3em;
+}
+
+.more-btn-container {
+    width: 100%;
+
+    padding: .4em;
+
     border-radius: var(--main-border-radios);
     border: 1px solid rgb(75, 74, 74);
     background-color: rgb(190, 189, 188);

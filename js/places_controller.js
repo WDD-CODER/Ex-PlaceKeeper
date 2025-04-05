@@ -1,24 +1,30 @@
 'use strict';
 
 var gMap = null;
+var gMarkers = [];
 function onMapInit() {
     onStartClockAndDate()
     initMap()
     renderPlaces()
 }
 
-// const gPlaces = [
-//     { id: '1p3', lat: 30.1416, lng: 38.831213, name: 'soukis house' },
-//     { id: '1p3', lat: 29.550360, lng: 34.952278, name: 'soukis house' },
-// ]
-
 
 function onRemovePlace(placeId) {
+    const places = getPlaces()
     if (!confirm('are you sure ?')) return
-        
     removePlace(placeId)
     renderPlaces()
- }
+    renderMarkers()
+}
+
+function onRemoveAllPlaces() {
+    const places = getPlaces()
+    if (!confirm('Are you sure you want to remove all!??')) return
+    removePlaces()
+    renderPlaces()
+    renderMarkers()
+}
+
 
 
 function renderPlaces() {
@@ -26,14 +32,19 @@ function renderPlaces() {
     const strHtml = places.map(place => {
         return `<li> ${place.name}
                 <button onclick="onRemovePlace('${place.id}')">X</button>
+                <button onclick="onPanToPlace('${place.id}')">Go</button>
                 </li>`
-                // <button onclick="onPanToPlace('${place.id}')">Go</button>
     })
-    console.log("🚀 ~ renderPlaces ~ strHtml:", strHtml)
-
     document.querySelector('.places ul').innerHTML = strHtml.join('')
+    renderMarkers()
 }
 
+
+function onPanToPlace(placeId) {
+    const place = getPlaceById(placeId)
+    gMap.setCenter({ lat: place.lat, lng: place.lng })
+    gMap.setZoom(place.zoom)
+}
 
 function initMap() {
     const elMap = document.querySelector('.map-container')
@@ -45,6 +56,49 @@ function initMap() {
         //   mapId: makeId()
     })
 
+    gMap.addListener('click', ev => {
+        const name = prompt('Place name?', 'Place 1')
+        const lat = ev.latLng.lat()
+        const lng = ev.latLng.lng()
+        addPlace(name, lat, lng, gMap.getZoom())
+        renderPlaces()
+        renderMarkers()
+    })
 }
 
+function onSuccess(position) {
+    const lat = position.coords.latitude
+    const lng = position.coords.longitude
 
+    // Optional: move the map to user location
+    gMap.setCenter({ lat, lng })
+    gMap.setZoom(15)
+}
+
+function onError(err) {
+    console.error('Failed to get user location:', err)
+}
+
+function renderMarkers() {
+    const places = getPlaces()
+    // remove previous markers 
+    //    if (!gMarkers) return
+    //    else
+    gMarkers.forEach(marker => marker.setMap(null))
+    // every place is creating a marker 
+    gMarkers = places.map(place => {
+        return new google.maps.Marker({
+            position: place,
+            map: gMap,
+            title: place.name,
+
+        })
+    })
+}
+// onDownloadCSV()
+function onDownloadCSV(el) {
+    const csvFile = getCSVfil()
+    var newCC = 'data:text/csv;charset=utf-8,' + csvFile
+    console.log("🚀 ~ onDownloadCSV ~ csvFile:", csvFile)
+    el.href = newCC
+}
