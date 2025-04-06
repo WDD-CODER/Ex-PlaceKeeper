@@ -138,9 +138,6 @@ footer {
     background-color: bisque;
 }
 
-footer time {}
-
-
 form {
     display: flex;
     flex-direction: column;
@@ -258,7 +255,7 @@ li::marker {
 
 li {
     padding: .4em;
-    
+
     border-radius: var(--main-border-radios);
     border: 1px solid rgb(75, 74, 74);
     background-color: rgb(190, 189, 188);
@@ -279,3 +276,13 @@ li button:first-of-type {
     background-color: rgb(190, 189, 188);
 
 }
+
+dialog {
+    border-radius: var(--main-border-radios);
+    background-color: rgb(201, 201, 201);
+}
+
+form {
+margin: 1em;
+    width: 15em;
+} 

@@ -22,6 +22,6 @@ function onSubmit(ev) {
     window.location.href = '/html/index.html'
 }
 
-function onShowAgeRange(value){
-document.querySelector('.age').innerText = value
+function onShowAgeRange(val) {
+    document.querySelector('.age').innerText = val
 }

@@ -3,11 +3,6 @@
 var gPlaces
 const PLACES_STORAGE_KEY = 'placesDB'
 _createPlaces()
-// const gPlaces = [
-//     { id: '1p3', lat: 30.1416, lng: 38.831213, name: 'soukis house' },
-//     { id: '1p3', lat: 29.550360, lng: 34.952278, name: 'soukis house' },
-// { id: '1p2', lat: 32.1416, lng: 34.831213, name: 'Pukis house' },
-// ]
 
 // Add & Remove
 function getPlaces() {
@@ -83,4 +78,13 @@ function getCSVfil() {
 function getCSVTitles() {
     const Places = gPlaces || []
     const objectKeys = Object.keys(Places[0]).join(",")
+}
+
+function getModalValue(form) {
+const name = form.elements['placeName'].value
+console.log("🚀 ~ getModalValue ~ name:", name)
+}
+
+function closeModal(){
+   const modal = document.querySelector('dialog').close()
 }

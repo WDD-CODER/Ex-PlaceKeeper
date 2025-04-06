@@ -2,6 +2,7 @@
 
 var gMap = null;
 var gMarkers = [];
+var gCoords = {}
 function onMapInit() {
     onStartClockAndDate()
     initMap()
@@ -57,13 +58,16 @@ function initMap() {
     })
 
     gMap.addListener('click', ev => {
-        const name = prompt('Place name?', 'Place 1')
+        onOpenModal()
         const lat = ev.latLng.lat()
         const lng = ev.latLng.lng()
-        addPlace(name, lat, lng, gMap.getZoom())
-        renderPlaces()
-        renderMarkers()
+        gCoords = { lat, lng }
     })
+
+}
+
+function onOpenModal() {
+    const modal = document.querySelector('.modal').showModal()
 }
 
 function onSuccess(position) {
@@ -81,11 +85,7 @@ function onError(err) {
 
 function renderMarkers() {
     const places = getPlaces()
-    // remove previous markers 
-    //    if (!gMarkers) return
-    //    else
     gMarkers.forEach(marker => marker.setMap(null))
-    // every place is creating a marker 
     gMarkers = places.map(place => {
         return new google.maps.Marker({
             position: place,
@@ -101,4 +101,12 @@ function onDownloadCSV(el) {
     var newCC = 'data:text/csv;charset=utf-8,' + csvFile
     console.log("🚀 ~ onDownloadCSV ~ csvFile:", csvFile)
     el.href = newCC
+}
+
+function onAddPlace(el) {
+    addPlace(el.elements.placeName.value || 'no name', gCoords.lat, gCoords.lng, gMap.getZoom())
+    //clear the value of the form
+    el.elements.placeName.value = ''
+    renderPlaces()
+    renderMarkers()
 }

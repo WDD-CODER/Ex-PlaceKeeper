@@ -3,8 +3,8 @@
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-  
+}
+
 
 function makeId(length = 6) {
     const possible =
@@ -39,4 +39,9 @@ function loadFromLocalStorage(key) {
     return data ? JSON.parse(data) : null;
 }
 
-
+function getAgeByYear() {
+    const birthDate = new Date(form.elements.birthDate.value)
+    const today = new Date()
+    let calcAge = today.getFullYear() - birthDate.getFullYear()
+    console.log("🚀 ~ getAgeByYear ~ calcAge:", calcAge)
+}
